@@ -1,26 +1,25 @@
 package com.mylibrarian
 
-import android.icu.text.AlphabeticIndex
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.LinearLayout
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.books_given.*
 import kotlinx.android.synthetic.main.books_taken.*
+import kotlinx.android.synthetic.main.books_taken.addBorrowedBook
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
+
 
 class BooksTaken : BaseFragment() {
 
     lateinit var recordAdapter: RecordAdapter
-    private var records: List<Record> = ArrayList()
+    var records: ArrayList<Record> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,10 +44,11 @@ class BooksTaken : BaseFragment() {
 
         launch {
             context?.let {
-                records = RecordDatabase(it).getRecordDao().getBorrowedBooks()
+                records.addAll(RecordDatabase(it).getRecordDao().getBorrowedBooks())
                 recordAdapter.notifyDataSetChanged()
                 Log.d("Records", records.toString())
             }
+            Log.d("Records", records.toString())
         }
     }
 }

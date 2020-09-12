@@ -14,10 +14,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.room.CoroutinesRoom.Companion.execute
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.add_borrowed_book.*
+import kotlinx.android.synthetic.main.add_borrowed_book.add_borrowed_book
+import kotlinx.android.synthetic.main.add_lent_book.*
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class AddBorrowedBook : BaseFragment() {
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,21 +35,22 @@ class AddBorrowedBook : BaseFragment() {
             val personName = person_name.text.toString()
             val bookName = book_name.text.toString()
             if(bookName.isBlank()) {
-                Toast.makeText(activity,"Book Name cannot be left blank!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Book Name cannot be left blank!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if(personName.isBlank()) {
-                Toast.makeText(activity,"Name of lender cannot be left blank!",Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,"Name of borrower cannot be left blank!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            launch {
-                val rec = Record(bookName,personName,'B')
-                context.let {
-                    RecordDatabase(it!!).getRecordDao().addRecord(rec)
-                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()
-                    val list = RecordDatabase(it).getRecordDao().getBorrowedBooks()
+            val rec = Record(bookName,personName,"B")
+
+            MainScope().launch {
+                context?.let {
+                    RecordDatabase(it).getRecordDao().addRecord(rec)
+                    val list = RecordDatabase(it).getRecordDao().getBooks()
                     Log.i("insert",list.toString())
+//                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()
                 }
             }
             findNavController().navigate(R.id.action_addBorrowedBook_to_booksTaken)

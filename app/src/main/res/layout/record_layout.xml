@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <RelativeLayout
@@ -17,11 +17,11 @@
             android:textStyle="bold"
             android:paddingVertical="10dp"
             android:minHeight="47dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:id="@+id/bName"
             android:layout_height="wrap_content"
             android:text="Abcd"
@@ -39,12 +39,12 @@
             android:textStyle="bold"
             android:paddingVertical="10dp"
             android:minHeight="47dp"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Xyz"
             android:textSize="35sp"

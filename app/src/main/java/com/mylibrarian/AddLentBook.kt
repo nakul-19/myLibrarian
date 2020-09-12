@@ -14,6 +14,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.add_lent_book.*
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class AddLentBook : BaseFragment() {
@@ -39,13 +40,14 @@ class AddLentBook : BaseFragment() {
                 return@setOnClickListener
             }
 
-            launch {
-                val rec = Record(bookName,personName,'L')
+            val rec = Record(bookName,personName,"L")
+
+            MainScope().launch {
                 context?.let {
                     RecordDatabase(it).getRecordDao().addRecord(rec)
-                    val list = RecordDatabase(it).getRecordDao().getBorrowedBooks()
+                    val list = RecordDatabase(it).getRecordDao().getBooks()
                     Log.i("insert",list.toString())
-                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()
                 }
             }
             findNavController().navigate(R.id.action_addLentBook_to_booksGiven)

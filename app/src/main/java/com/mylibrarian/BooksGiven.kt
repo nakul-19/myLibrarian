@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 class BooksGiven : BaseFragment() {
 
     lateinit var recordAdapter: RecordAdapter
-    var records: List<Record> = ArrayList()
+    var records: ArrayList<Record> = ArrayList()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,7 +46,7 @@ class BooksGiven : BaseFragment() {
 
         launch {
             context?.let {
-                records = RecordDatabase(it).getRecordDao().getLentBooks()
+                records.addAll(RecordDatabase(it).getRecordDao().getLentBooks())
                 recordAdapter.notifyDataSetChanged()
                 Log.d("Records", records.toString())
             }
