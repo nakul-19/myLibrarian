@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/launchFragment">
+
+    <fragment
+        android:id="@+id/launchFragment"
+        android:name="com.mylibrarian.LaunchFragment"
+        android:label="fragment_launch"
+        tools:layout="@layout/fragment_launch" >
+        <action
+            android:id="@+id/action_launchFragment_to_booksGiven"
+            app:destination="@id/booksGiven" />
+        <action
+            android:id="@+id/action_launchFragment_to_booksTaken"
+            app:destination="@id/booksTaken" />
+    </fragment>
+    <fragment
+        android:id="@+id/booksGiven"
+        android:name="com.mylibrarian.BooksGiven"
+        android:label="books_given"
+        tools:layout="@layout/books_given" >
+        <action
+            android:id="@+id/action_booksGiven_to_addLentBook"
+            app:destination="@id/addLentBook" />
+        <action
+            android:id="@+id/action_booksGiven_to_launchFragment"
+            app:destination="@id/launchFragment"
+            app:popUpTo="@id/launchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/booksTaken"
+        android:name="com.mylibrarian.BooksTaken"
+        android:label="books_taken"
+        tools:layout="@layout/books_taken" >
+        <action
+            android:id="@+id/action_booksTaken_to_addBorrowedBook"
+            app:destination="@id/addBorrowedBook" />
+        <action
+            android:id="@+id/action_booksTaken_to_launchFragment"
+            app:destination="@id/launchFragment"
+            app:popUpTo="@id/launchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBorrowedBook"
+        tools:layout="@layout/add_borrowed_book"
+        android:name="com.mylibrarian.AddBorrowedBook"
+        android:label="AddBorrowedBook" >
+        <action
+            android:id="@+id/action_addBorrowedBook_to_booksTaken"
+            app:destination="@id/booksTaken"
+            app:popUpTo="@id/booksTaken"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/addLentBook"
+        tools:layout="@layout/add_lent_book"
+        android:name="com.mylibrarian.AddLentBook"
+        android:label="AddLentBook" >
+        <action
+            android:id="@+id/action_addLentBook_to_booksGiven"
+            app:destination="@id/booksGiven"
+            app:popUpTo="@id/booksGiven"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
