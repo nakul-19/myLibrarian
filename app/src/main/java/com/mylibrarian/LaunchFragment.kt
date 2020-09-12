@@ -11,7 +11,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.findNavController
 
-class LaunchFragment : Fragment() {
+class LaunchFragment : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,11 +23,9 @@ class LaunchFragment : Fragment() {
         val borrowedButton = view.findViewById<Button>(R.id.borrowed)
         Log.i("launchscreen","reached")
         lentButton.setOnClickListener {
-            Log.i("launchscreen","lent clicked")
             view.findNavController().navigate(R.id.action_launchFragment_to_booksGiven)
         }
         borrowedButton.setOnClickListener {
-            Log.i("launchscreen","borrow cicked")
             view.findNavController().navigate(R.id.action_launchFragment_to_booksTaken)
         }
         return view

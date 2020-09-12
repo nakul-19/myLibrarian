@@ -6,9 +6,21 @@
     tools:context=".BooksGiven"
     android:background="#FFD801"
     xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/given_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:paddingVertical="20sp"
+        android:paddingHorizontal="15sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_lent_book"
+        android:id="@+id/addLentBook"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"

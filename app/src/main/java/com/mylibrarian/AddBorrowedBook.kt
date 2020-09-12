@@ -10,31 +10,48 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.room.CoroutinesRoom.Companion.execute
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.add_borrowed_book.*
+import kotlinx.coroutines.launch
 
-class AddBorrowedBook : Fragment() {
+class AddBorrowedBook : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.add_borrowed_book, container, false)
-        val addButton = view.findViewById<FloatingActionButton>(R.id.add_borrowed_book)
+        return inflater.inflate(R.layout.add_borrowed_book, container, false)
+    }
 
-        addButton.setOnClickListener {
-            val personName = view.findViewById<EditText>(R.id.person_name)
-            val bookName = view.findViewById<EditText>(R.id.book_name)
-            if(bookName.text.isBlank()) {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+
+        add_borrowed_book.setOnClickListener {
+            val personName = person_name.text.toString()
+            val bookName = book_name.text.toString()
+            if(bookName.isBlank()) {
                 Toast.makeText(activity,"Book Name cannot be left blank!",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if(personName.text.isBlank()) {
+            if(personName.isBlank()) {
                 Toast.makeText(activity,"Name of lender cannot be left blank!",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            view.findNavController().navigate(R.id.action_addBorrowedBook_to_booksTaken)
+
+            launch {
+                val rec = Record(bookName,personName,'B')
+                context.let {
+                    RecordDatabase(it!!).getRecordDao().addRecord(rec)
+                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()
+                    val list = RecordDatabase(it).getRecordDao().getBorrowedBooks()
+                    Log.i("insert",list.toString())
+                }
+            }
+            findNavController().navigate(R.id.action_addBorrowedBook_to_booksTaken)
         }
-        return view
     }
+
 }
