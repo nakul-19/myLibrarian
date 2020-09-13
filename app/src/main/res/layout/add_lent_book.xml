@@ -21,6 +21,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/ic_delete"
+        tools:layout_editor_absoluteX="345dp"
+        tools:layout_editor_absoluteY="7dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#EE9A4D"
+        android:focusable="true" />
+
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/person_name1"
         app:layout_constraintBottom_toTopOf="@id/add_lent_book"
