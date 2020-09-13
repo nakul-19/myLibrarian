@@ -6,7 +6,7 @@
     tools:context=".BooksGiven"
     android:background="#FFD801"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/given_recycler_view"
         android:layout_width="match_parent"

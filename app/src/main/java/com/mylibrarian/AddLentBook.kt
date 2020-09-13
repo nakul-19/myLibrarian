@@ -13,11 +13,15 @@ import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.add_borrowed_book.*
 import kotlinx.android.synthetic.main.add_lent_book.*
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class AddLentBook : BaseFragment() {
+
+    var record: Record? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -27,6 +31,28 @@ class AddLentBook : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        arguments?.let {
+            record = AddLentBookArgs.fromBundle(it).lBook
+            if(record!=null) {
+                person_name1.setText(record?.p_name)
+                book_name1.setText(record?.b_name)
+            }
+        }
+
+        deleteL.setOnClickListener {
+            if(record==null){
+                Toast.makeText(activity,"This record already doesn't exist!",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            MainScope().launch {
+                context?.let {
+                    val rec = record!!
+                    RecordDatabase(it).getRecordDao().delete(rec)
+                }
+            }
+            findNavController().navigate(R.id.action_addLentBook_to_booksGiven)
+        }
 
         add_lent_book.setOnClickListener {
             val personName = person_name1.text.toString()
@@ -40,11 +66,16 @@ class AddLentBook : BaseFragment() {
                 return@setOnClickListener
             }
 
-            val rec = Record(bookName,personName,"L")
-
             MainScope().launch {
+
                 context?.let {
+                    val rec = Record(bookName,personName,"L")
+                    if(record==null)
                     RecordDatabase(it).getRecordDao().addRecord(rec)
+                    else{
+                        rec.id = record!!.id
+                        RecordDatabase(it).getRecordDao().update(rec)
+                    }
                     val list = RecordDatabase(it).getRecordDao().getBooks()
                     Log.i("insert",list.toString())
 //                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()

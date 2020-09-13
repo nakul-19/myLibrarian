@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,7 +15,6 @@ import kotlinx.android.synthetic.main.books_taken.*
 import kotlinx.android.synthetic.main.books_taken.addBorrowedBook
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-
 
 class BooksTaken : BaseFragment() {
 
@@ -26,7 +26,6 @@ class BooksTaken : BaseFragment() {
         savedInstanceState: Bundle?
     ): View? {
         Log.i("taken","reached")
-        // Inflate the layout for this fragment
         val view =inflater.inflate(R.layout.books_taken, container, false)
         val recyclerView = view.findViewById<RecyclerView>(R.id.taken_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(context)
@@ -39,11 +38,14 @@ class BooksTaken : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         addBorrowedBook.setOnClickListener {
-            findNavController().navigate(R.id.action_booksTaken_to_addBorrowedBook)
+            val action = BooksTakenDirections.actionBooksTakenToAddBorrowedBook()
+            action.bBook = null
+            findNavController(it).navigate(action)
         }
 
         launch {
             context?.let {
+                records.clear()
                 records.addAll(RecordDatabase(it).getRecordDao().getBorrowedBooks())
                 recordAdapter.notifyDataSetChanged()
                 Log.d("Records", records.toString())

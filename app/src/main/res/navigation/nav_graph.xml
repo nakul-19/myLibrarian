@@ -55,6 +55,11 @@
             app:destination="@id/booksTaken"
             app:popUpTo="@id/booksTaken"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="bBook"
+            app:argType="com.mylibrarian.Record"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/addLentBook"
@@ -66,5 +71,10 @@
             app:destination="@id/booksGiven"
             app:popUpTo="@id/booksGiven"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="lBook"
+            android:defaultValue="@null"
+            app:argType="com.mylibrarian.Record"
+            app:nullable="true"/>
     </fragment>
 </navigation>

@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.navigation.Navigation
+import androidx.navigation.Navigation.*
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -41,11 +43,14 @@ class BooksGiven : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         addLentBook.setOnClickListener {
-            findNavController().navigate(R.id.action_booksGiven_to_addLentBook)
+            val action = BooksGivenDirections.actionBooksGivenToAddLentBook()
+            action.lBook = null
+            findNavController(it).navigate(action)
         }
 
         launch {
             context?.let {
+                records.clear()
                 records.addAll(RecordDatabase(it).getRecordDao().getLentBooks())
                 recordAdapter.notifyDataSetChanged()
                 Log.d("Records", records.toString())

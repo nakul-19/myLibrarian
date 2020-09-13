@@ -20,6 +20,9 @@ import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
 class AddBorrowedBook : BaseFragment() {
+
+    var record : Record? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,6 +33,28 @@ class AddBorrowedBook : BaseFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        arguments?.let {
+            record = AddBorrowedBookArgs.fromBundle(it).bBook
+            if(record!=null) {
+                person_name.setText(record?.p_name)
+                book_name.setText(record?.b_name)
+            }
+        }
+
+        deleteB.setOnClickListener {
+            if(record==null){
+                Toast.makeText(activity,"This record already doesn't exist!",Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            MainScope().launch {
+                context?.let {
+                    val rec = record!!
+                    RecordDatabase(it).getRecordDao().delete(rec)
+                }
+            }
+            findNavController().navigate(R.id.action_addBorrowedBook_to_booksTaken)
+        }
 
         add_borrowed_book.setOnClickListener {
             val personName = person_name.text.toString()
@@ -43,11 +68,15 @@ class AddBorrowedBook : BaseFragment() {
                 return@setOnClickListener
             }
 
-            val rec = Record(bookName,personName,"B")
-
             MainScope().launch {
                 context?.let {
+                    val rec = Record(bookName,personName,"B")
+                    if(record==null)
                     RecordDatabase(it).getRecordDao().addRecord(rec)
+                    else{
+                        rec.id = record!!.id
+                        RecordDatabase(it).getRecordDao().update(rec)
+                    }
                     val list = RecordDatabase(it).getRecordDao().getBooks()
                     Log.i("insert",list.toString())
 //                    Toast.makeText(activity,"Entry saved!",Toast.LENGTH_SHORT).show()

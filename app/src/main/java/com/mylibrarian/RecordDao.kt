@@ -1,8 +1,6 @@
 package com.mylibrarian
 
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 
 @Dao
 interface RecordDao {
@@ -17,4 +15,10 @@ interface RecordDao {
 
     @Query("SELECT * FROM record")
     suspend fun getBooks() : List<Record>
+
+    @Delete
+    suspend fun delete(record: Record)
+
+    @Update
+    suspend fun update(record: Record)
 }
