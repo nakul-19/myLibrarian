@@ -1,56 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="03dp"
+    android:background="@drawable/book"
+    app:cardCornerRadius="15dp"
+    android:orientation="vertical">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="449dp"
+        android:layout_height="104dp"
+        android:background="@drawable/record">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bookName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Book Name : "
-            android:textSize="35sp"
-            android:paddingHorizontal="15dp"
-            android:textStyle="bold"
-            android:paddingVertical="10dp"
             android:minHeight="47dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="Book Name : "
+            android:textColor="@color/cardview_light_background"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="match_parent"
             android:id="@+id/bName"
-            android:layout_height="wrap_content"
-            android:text="Abcd"
-            android:textSize="35sp"
-            android:textStyle="italic"
+            android:layout_width="221dp"
+            android:layout_height="57dp"
+            android:layout_below="@id/bookName"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="-58dp"
+            android:layout_toEndOf="@+id/bookName"
             android:gravity="center"
-            android:layout_below="@id/bookName"/>
+            android:text="Abcd"
+            android:textColor="?android:attr/colorBackground"
+            android:textSize="28sp"
+            android:textStyle="italic" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/personName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/bName"
-            android:text="Person Name : "
-            android:textSize="35sp"
-            android:paddingHorizontal="15dp"
-            android:textStyle="bold"
-            android:paddingVertical="10dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="-13dp"
             android:minHeight="47dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:text="Person Name : "
+            android:textColor="@color/cardview_light_background"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/pName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Xyz"
-            android:textSize="35sp"
-            android:textStyle="italic"
+            android:layout_width="224dp"
+            android:layout_height="54dp"
+            android:layout_below="@id/personName"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="-27dp"
+            android:layout_marginTop="-49dp"
+            android:layout_marginEnd="38dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toEndOf="@+id/personName"
             android:gravity="center"
-            android:layout_below="@id/personName"/>
+            android:text="Xyz"
+            android:textColor="?android:attr/colorBackground"
+            android:textSize="28sp"
+            android:textStyle="italic" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
