@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bookName"
+            android:layout_alignParentTop="true"
+            android:text="Book Name : "
+            android:textSize="35sp"
+            android:paddingHorizontal="15dp"
+            android:textStyle="bold"
+            android:paddingVertical="10dp"
+            android:minHeight="47dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:id="@+id/bName"
+            android:layout_height="wrap_content"
+            android:text="Abcd"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_below="@id/bookName"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/personName"
+            android:layout_below="@id/bName"
+            android:text="Person Name : "
+            android:textSize="35sp"
+            android:paddingHorizontal="15dp"
+            android:textStyle="bold"
+            android:paddingVertical="10dp"
+            android:minHeight="47dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/pName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Xyz"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:layout_below="@id/personName"/>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
