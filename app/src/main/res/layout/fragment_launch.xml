@@ -3,53 +3,56 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FFD801"
+    android:background="@drawable/back2"
     tools:context=".LaunchFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/appName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MyLibrarian"
-        android:textSize="53sp"
-        android:layout_marginTop="40dp"
-        android:textColor="#000000"
-        android:textStyle="bold|italic"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+<!--    <androidx.appcompat.widget.AppCompatTextView-->
+<!--        android:id="@+id/appName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="MyLibrarian"-->
+<!--        android:textSize="53sp"-->
+<!--        android:layout_marginTop="40dp"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textStyle="bold|italic"-->
+<!--        android:gravity="center"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        />-->
 
     <Button
         android:id="@+id/lent"
-        app:layout_constraintTop_toBottomOf="@id/appName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_width="wrap_content"
-        android:text="Books Lent"
-        android:textSize="30sp"
-        android:background="#FBB917"
-        android:paddingHorizontal="30sp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_button"
+        android:paddingHorizontal="60sp"
         android:paddingVertical="20sp"
-        android:layout_marginBottom="30dp"
-        android:textStyle="italic"
-        android:layout_height="wrap_content"/>
+        android:text="Lent"
+        android:textColor="#F3B314"
+        android:textSize="30sp"
+        android:typeface="serif"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.728" />
 
     <Button
         android:id="@+id/borrowed"
-        android:text="Books Borrowed"
-        android:textSize="30sp"
-        android:textStyle="italic"
-        android:background="#FBB917"
-        app:layout_constraintTop_toBottomOf="@id/lent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/custom_button"
         android:paddingHorizontal="30sp"
         android:paddingVertical="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        />
+        android:text="Borrowed"
+        android:textColor="#F3B314"
+        android:textSize="30sp"
+        android:typeface="serif"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -59,7 +59,7 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <TextView
             android:id="@+id/pName"
             android:layout_width="228dp"
             android:layout_height="63dp"
