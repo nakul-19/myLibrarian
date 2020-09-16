@@ -1,82 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.cardview.widget.CardView
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="03dp"
-    android:background="@drawable/book"
     app:cardCornerRadius="15dp"
+    android:layout_marginBottom="3dp"
+    android:clipToPadding="true"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="449dp"
-        android:layout_height="104dp"
-        android:background="@drawable/record">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bookDetails"
+            android:paddingVertical="12dp"
+            android:background="@drawable/record"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bookName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/bookDetails"
+            app:layout_constraintBottom_toBottomOf="@id/bookDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:fontFamily="@font/alegreya_sc"
-            android:minHeight="47dp"
             android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:text="Book Name : "
+            android:text="@string/book_name"
             android:textColor="@color/cardview_light_background"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="PrivateResource" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/bName"
-            android:layout_width="221dp"
-            android:layout_height="57dp"
-            android:layout_below="@id/bookName"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="-58dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintTop_toTopOf="@id/bookDetails"
+            android:layout_width="wrap_content"
+            app:layout_constrainedWidth="true"
+            android:paddingHorizontal="7dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/bookDetails"
+            app:layout_constraintStart_toEndOf="@id/bookName"
+            app:layout_constraintEnd_toEndOf="@id/bookDetails"
             android:layout_toEndOf="@+id/bookName"
             android:fontFamily="@font/alegreya_sc"
             android:gravity="center"
-            android:text="Abcd"
+            android:text="@string/xyz"
             android:textColor="?android:attr/colorBackground"
-            android:textSize="28sp"
+            android:textSize="22sp"
             android:textStyle="italic" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp"
+            android:background="@drawable/record"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bookDetails"
+            android:id="@+id/personDetails">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/personName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/bName"
+            app:layout_constraintBottom_toBottomOf="@id/personDetails"
+            app:layout_constraintTop_toTopOf="@id/personDetails"
+            app:layout_constraintStart_toStartOf="@id/personDetails"
             android:layout_alignParentStart="true"
             android:layout_marginStart="0dp"
-            android:layout_marginTop="-13dp"
             android:fontFamily="@font/alegreya_sc"
-            android:minHeight="47dp"
             android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp"
-            android:text="Person Name : "
+            android:text="@string/person_name"
             android:textColor="@color/cardview_light_background"
-            android:textSize="28sp"
-            android:textStyle="bold" />
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:ignore="PrivateResource" />
 
         <TextView
+            android:layout_width="wrap_content"
             android:id="@+id/pName"
-            android:layout_width="228dp"
-            android:layout_height="63dp"
-            android:layout_below="@id/personName"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constrainedWidth="true"
+            android:paddingHorizontal="7dp"
+            app:layout_constraintEnd_toEndOf="@id/personDetails"
+            app:layout_constraintTop_toTopOf="@id/personDetails"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/personDetails"
+            app:layout_constraintStart_toEndOf="@id/personName"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="-26dp"
-            android:layout_marginTop="-52dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="6dp"
             android:layout_toEndOf="@+id/personName"
             android:fontFamily="@font/alegreya_sc"
             android:gravity="center"
-            android:text="Xyz"
+            android:text="@string/xyz"
             android:textColor="?android:attr/colorBackground"
-            android:textSize="28sp"
+            android:textSize="22sp"
             android:textStyle="italic" />
 
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
+

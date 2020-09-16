@@ -2,4 +2,11 @@
     <string name="app_name">MyLibrarian</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="book_name">Book Name :</string>
+    <string name="person_name">Person Name :</string>
+    <string name="xyz">Xyz</string>
+    <string name="name_of_borrower">Name of Borrower</string>
+    <string name="book_name1">Book Name</string>
+    <string name="books_borrowed">Books Borrowed</string>
+    <string name="books_lent">Books Lent</string>
 </resources>
