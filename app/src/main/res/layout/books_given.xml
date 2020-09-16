@@ -2,23 +2,36 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
+    android:background="@drawable/book"
     android:layout_width="match_parent"
     tools:context=".BooksGiven"
-    android:background="#FFD801"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/bookLentTag"
+        android:layout_marginTop="13dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@android:color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/alegreya_sc"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/books_lent"
+        android:textStyle="bold"
+        android:textSize="43sp"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/given_recycler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/book"
-        android:paddingHorizontal="15sp"
-        android:paddingVertical="20sp"
+        android:paddingHorizontal="7dp"
+        android:paddingVertical="15dp"
         android:scrollbars="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/bookLentTag" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addLentBook"
@@ -32,5 +45,7 @@
         android:src="@drawable/ic_add"
         app:backgroundTint="@color/cardview_dark_background"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="PrivateResource" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+
