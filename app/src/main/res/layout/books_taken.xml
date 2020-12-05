@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     tools:context=".BooksTaken"
-    android:background="@drawable/book"
+    android:background="#EEF69825"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -16,6 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/alegreya_sc"
+        android:shadowColor="#DDCA1D"
+        android:shadowRadius="5"
+        android:shadowDx="2"
+        android:shadowDy="2"
         app:layout_constraintTop_toTopOf="parent"
         android:text="@string/books_borrowed"
         android:textStyle="bold"

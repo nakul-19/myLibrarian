@@ -3,56 +3,64 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/back2"
+    android:background="#EEF69825"
     tools:context=".LaunchFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-
-<!--    <androidx.appcompat.widget.AppCompatTextView-->
-<!--        android:id="@+id/appName"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="MyLibrarian"-->
-<!--        android:textSize="53sp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textStyle="bold|italic"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        />-->
+<!--    //#EEF69825-->
 
     <Button
         android:id="@+id/lent"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/custom_button"
+        android:elevation="15dp"
+        android:background="@drawable/round"
         android:paddingHorizontal="60sp"
         android:paddingVertical="20sp"
         android:text="Lent"
-        android:textColor="#F3B314"
+        android:textColor="#EEF69825"
         android:textSize="30sp"
         android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.377" />
 
     <Button
         android:id="@+id/borrowed"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/round"
+        android:elevation="15dp"
         android:paddingHorizontal="30sp"
         android:paddingVertical="20sp"
         android:text="Borrowed"
-        android:textColor="#F3B314"
+        android:textColor="#EEF69825"
         android:textSize="30sp"
         android:typeface="serif"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="My Librarian"
+        android:textColor="#040403"
+        android:shadowColor="#100F0F"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.128" />
 </androidx.constraintlayout.widget.ConstraintLayout>
