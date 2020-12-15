@@ -18,7 +18,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bookDetails"
             android:paddingVertical="12dp"
-            android:background="@drawable/record"
+            android:background="@color/colorPrimaryDark"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -34,7 +34,7 @@
             android:fontFamily="@font/alegreya_sc"
             android:paddingHorizontal="15dp"
             android:text="@string/book_name"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="#EEF69825"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="PrivateResource" />
@@ -55,7 +55,7 @@
             android:fontFamily="@font/alegreya_sc"
             android:gravity="center"
             android:text="@string/xyz"
-            android:textColor="?android:attr/colorBackground"
+            android:textColor="#EEF69825"
             android:textSize="22sp"
             android:textStyle="italic" />
 
@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingVertical="12dp"
-            android:background="@drawable/record"
+            android:background="@color/colorPrimaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/bookDetails"
             android:id="@+id/personDetails">
@@ -82,7 +82,7 @@
             android:fontFamily="@font/alegreya_sc"
             android:paddingHorizontal="15dp"
             android:text="@string/person_name"
-            android:textColor="@color/cardview_light_background"
+            android:textColor="#EEF69825"
             android:textSize="24sp"
             android:textStyle="bold"
             tools:ignore="PrivateResource" />
@@ -105,7 +105,7 @@
             android:fontFamily="@font/alegreya_sc"
             android:gravity="center"
             android:text="@string/xyz"
-            android:textColor="?android:attr/colorBackground"
+            android:textColor="#EEF69825"
             android:textSize="22sp"
             android:textStyle="italic" />
 
